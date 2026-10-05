@@ -2,104 +2,131 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a160a">
 <title>Before you come · The Feni Trail · 17–18 October</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IM+Fell+English+SC&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 <style>
 /* Tokens: green, gold, white. CONFIRM --gold against the main site CSS. */
 :root{
   --green:#0a160a;
   --green-2:#12200f;
-  --white:#ffffff;
+  --paper:#fcfaf4;
   --gold:#c9a648;
-  --muted-d:#b5bfa8;   /* muted text on green */
+  --gold-ink:#7a5e16;  /* gold for text on white */
+  --muted-d:#b9c2ac;   /* muted text on green */
   --muted-l:#4a5a45;   /* muted text on white */
-  --serif:"TeX Gyre Pagella","Palatino Linotype",Palatino,"Book Antiqua","URW Palladio L",Georgia,serif;
-  --display:"TeX Gyre Bonum","Bookman Old Style",Bookman,"URW Bookman",Georgia,serif;
+  --body:"EB Garamond","TeX Gyre Pagella","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --display:"Playfair Display","TeX Gyre Bonum","Bookman Old Style",Georgia,serif;
+  --caps:"IM Fell English SC","EB Garamond",Georgia,serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--green);color:var(--white);font-family:var(--serif);font-size:18px;line-height:1.6;-webkit-text-size-adjust:100%}
-h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.15;margin:0}
+body{margin:0;background:var(--green);color:#f7f3e8;font-family:var(--body);font-size:19.5px;line-height:1.62;-webkit-text-size-adjust:100%;font-variant-ligatures:common-ligatures;font-feature-settings:"onum" 1}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.12;margin:0}
 p{margin:0 0 1em}
-.wrap{max-width:620px;margin:0 auto;padding:0 22px 0 44px}
-section{padding:56px 0;position:relative}
-.dark{background:var(--green);color:var(--white)}
-.light{background:var(--white);color:var(--green)}
-.dark h2{color:var(--gold)}
-.light h2{color:var(--green)}
-h2{font-size:clamp(28px,7vw,36px);margin-bottom:.5em}
-.light .muted{color:var(--muted-l)}
-.dark .muted{color:var(--muted-d)}
+
+/* the two block themes */
+.dark{--bg:var(--green);--fg:#f7f3e8;--h:var(--gold);--accent:var(--gold);--muted:var(--muted-d);--line:rgba(201,166,72,.42);--field:var(--green-2);--field-line:rgba(201,166,72,.8);--focus:#fff;--err:#ffb4a8;--on-bg:var(--gold);--on-fg:var(--green)}
+.light{--bg:var(--paper);--fg:var(--green);--h:var(--green);--accent:var(--gold-ink);--muted:var(--muted-l);--line:rgba(10,22,10,.16);--field:#fff;--field-line:rgba(10,22,10,.55);--focus:var(--gold);--err:#a3261b;--on-bg:var(--green);--on-fg:var(--paper)}
+.dark,.light{background-color:var(--bg);color:var(--fg)}
+/* faint paper grain on the white blocks */
+.light{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .34 0 0 0 0 .16 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.wrap{max-width:620px;margin:0 auto;padding:0 22px 0 46px;position:relative}
+section{padding:64px 0 60px;position:relative}
+h2{font-size:clamp(30px,7.6vw,40px);color:var(--h);margin-bottom:.55em;letter-spacing:-.005em}
+.muted{color:var(--muted)}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+
+/* chapter mark above each heading */
+.eyebrow{font-family:var(--caps);color:var(--accent);font-size:16px;letter-spacing:.2em;margin:0 0 10px;display:flex;align-items:center;gap:12px}
+.eyebrow::after{content:"";height:1px;width:56px;background:currentColor;opacity:.7}
 
 /* gold trail line down the left edge, a dot at each section */
-.trail::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--gold)}
-.trail .wrap::before{content:"";position:absolute;left:5px;top:66px;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px var(--green)}
-.light.trail .wrap::before{box-shadow:0 0 0 4px var(--white)}
-.wrap{position:relative}
+.trail::before{content:"";position:absolute;left:12px;top:0;bottom:0;width:1px;background:var(--gold);box-shadow:4px 0 0 rgba(201,166,72,.45)}
+.trail .wrap::before{content:"";position:absolute;left:5px;top:6px;width:13px;height:13px;transform:rotate(45deg);background:var(--gold);box-shadow:0 0 0 5px var(--bg)}
+
+/* ornament */
+.orn{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--accent);font-size:22px;line-height:1;margin:34px 0 0}
+.orn::before,.orn::after{content:"";height:1px;flex:0 1 80px;background:currentColor;opacity:.6}
 
 /* hero */
-.hero{padding:48px 0 44px}
-.hero .wrap{padding-left:44px}
-.brand{font-family:var(--display);color:var(--gold);font-size:17px;margin-bottom:36px}
-.brand small{display:block;font-family:var(--serif);font-weight:400;color:var(--muted-d);font-size:15px}
-.hero h1{font-size:clamp(38px,10.5vw,56px);color:var(--white)}
-.count{display:flex;align-items:baseline;gap:14px;margin:30px 0 6px;border-top:2px solid var(--gold);padding-top:20px}
-.count b{font-family:var(--display);font-size:clamp(64px,22vw,104px);line-height:.9;color:var(--gold)}
-.count span{font-size:19px}
-.hero .dates{margin:0;color:var(--muted-d)}
+.hero{padding:44px 0 50px}
+.brand{font-family:var(--caps);color:var(--gold);font-size:19px;letter-spacing:.16em;margin-bottom:40px;line-height:1.3}
+.brand small{display:block;font-family:var(--body);font-style:italic;letter-spacing:.02em;color:var(--muted-d);font-size:16px}
+.hero h1{font-size:clamp(40px,11vw,60px);color:#f7f3e8;font-weight:700}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--gold)}
+.count{display:flex;align-items:baseline;gap:14px;margin:32px 0 8px;border-top:3px double var(--gold);border-bottom:1px solid rgba(201,166,72,.5);padding:20px 0 14px}
+.count b{font-family:var(--display);font-weight:600;font-style:italic;font-size:clamp(66px,22vw,108px);line-height:.9;color:var(--gold)}
+.count span{font-family:var(--caps);letter-spacing:.12em;font-size:19px}
+.hero .dates{margin:0;color:var(--muted-d);font-style:italic}
 
-/* host blocks */
-.person{border-left:3px solid var(--gold);padding-left:18px;margin:0 0 26px}
-.person h3{font-size:22px;margin-bottom:.1em}
-.person .role{font-style:italic;margin-bottom:.5em}
-
-/* timeline */
-.tl{border-top:1px solid var(--gold);margin-top:22px}
-.tl .r{display:flex;gap:18px;padding:13px 0;border-bottom:1px solid var(--gold)}
-.tl .t{flex:0 0 96px;font-family:var(--display);font-weight:700;color:var(--green)}
-.tl .d b{font-family:var(--display)}
-.tl .d.pending{color:var(--muted-l)}
-
-/* pack + dos */
-.pack label{display:flex;gap:12px;align-items:flex-start;padding:9px 0;cursor:pointer;border-bottom:1px solid rgba(10,22,10,.14)}
-.pack input{margin-top:6px;width:20px;height:20px;accent-color:var(--green);flex:none}
-.pack input:checked+span{text-decoration:line-through;color:var(--muted-l)}
-.dd{display:grid;gap:22px;margin-top:30px}
-.dd h3{font-size:21px;margin-bottom:.4em}
-.dd ul{margin:0;padding-left:1.1em}
-.dd li{margin-bottom:.5em}
+/* farm drop cap */
+.dropcap::first-letter{float:left;font-family:var(--display);font-weight:700;font-size:4.1em;line-height:.82;padding:6px 10px 0 0;color:var(--accent)}
 
 /* form */
-.field{margin:0 0 26px}
-.field>label,.field>.q{display:block;font-family:var(--display);font-weight:700;font-size:18px;margin-bottom:6px}
-.hint{display:block;font-weight:400;font-family:var(--serif);color:var(--muted-d);font-size:15.5px;margin-bottom:8px}
-input[type=text],input[type=tel],textarea{width:100%;font:inherit;font-size:17px;padding:13px 14px;border-radius:6px;border:1px solid var(--gold);background:var(--green-2);color:var(--white)}
-textarea{min-height:88px;resize:vertical}
-input[type=text]:focus,input[type=tel]:focus,textarea:focus,.chip input:focus-visible+span,button:focus-visible,a:focus-visible{outline:3px solid var(--white);outline-offset:2px}
+.field{margin:0 0 28px}
+.field>label,.field>.q{display:block;font-family:var(--display);font-weight:600;font-size:19px;margin-bottom:6px}
+.hint{display:block;font-style:italic;color:var(--muted);font-size:16.5px;margin-bottom:8px}
+input[type=text],input[type=tel],textarea{width:100%;font:inherit;font-size:18px;padding:12px 14px;border-radius:3px;border:1px solid var(--field-line);background:var(--field);color:var(--fg)}
+textarea{min-height:90px;resize:vertical}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
 .chip{position:relative}
 .chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
-.chip span{display:block;padding:10px 16px;border-radius:999px;border:1px solid var(--gold);color:var(--white);font-size:16.5px;line-height:1.3}
-.chip input:checked+span{background:var(--gold);color:var(--green);font-weight:700}
-.btn{display:block;width:100%;font-family:var(--display);font-weight:700;font-size:18px;padding:16px 18px;border-radius:8px;border:0;background:var(--gold);color:var(--green);cursor:pointer}
-.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold);margin-top:12px}
-.err{color:#ffb4a8;font-size:16px;min-height:1.4em;margin:10px 0 0}
-.note{font-size:15.5px}
-a{color:var(--gold)} .light a{color:var(--green)}
-footer{padding:36px 0 52px;text-align:center;color:var(--muted-d);font-size:15px;border-top:2px solid var(--gold)}
-footer b{display:block;font-family:var(--display);color:var(--gold);font-size:17px}
-footer .rough{max-width:520px;margin:0 auto 28px;padding:0 22px;color:var(--white);font-size:17px}
+.chip span{display:block;padding:9px 17px;border-radius:999px;border:1px solid var(--field-line);font-size:17.5px;line-height:1.3}
+.chip input:checked+span{background:var(--on-bg);color:var(--on-fg);border-color:var(--on-bg);font-weight:600}
+.btn{display:block;width:100%;font-family:var(--caps);letter-spacing:.04em;font-size:18.5px;padding:16px 14px;border-radius:3px;border:0;background:var(--on-bg);color:var(--on-fg);cursor:pointer;box-shadow:inset 0 0 0 1px var(--on-bg),inset 0 0 0 4px var(--bg)}
+.btn.ghost{background:transparent;color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);margin-top:12px}
+input[type=text]:focus,input[type=tel]:focus,textarea:focus,.chip input:focus-visible+span,button:focus-visible,a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.err{color:var(--err);font-size:17px;min-height:1.4em;margin:10px 0 0}
+.err.ok{color:var(--fg)}
+.note{font-size:16.5px;font-style:italic}
 
-/* form on white */
-.light .hint{color:var(--muted-l)}
-.light input[type=text],.light input[type=tel],.light textarea{background:var(--white);color:var(--green);border:1px solid var(--green)}
-.light .chip span{color:var(--green);border-color:var(--green)}
-.light .chip input:checked+span{background:var(--green);color:var(--white);border-color:var(--green)}
-.light input[type=text]:focus,.light input[type=tel]:focus,.light textarea:focus,.light .chip input:focus-visible+span,.light button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-.light .btn.ghost{color:var(--green);border-color:var(--green)}
+/* pack + dos */
+.pack label{display:flex;gap:12px;align-items:flex-start;padding:9px 0;cursor:pointer;border-bottom:1px dotted var(--line)}
+.pack label:first-of-type{border-top:1px solid var(--line)}
+.pack input{margin-top:6px;width:20px;height:20px;accent-color:var(--green);flex:none}
+.pack input:checked+span{text-decoration:line-through;color:var(--muted)}
+.dd{display:grid;gap:24px;margin-top:34px}
+.dd h3{font-size:23px;margin-bottom:.4em;color:var(--accent);font-style:italic;font-weight:600}
+.dd ul{margin:0;padding-left:0;list-style:none}
+.dd li{margin-bottom:.5em;padding-left:1.2em;position:relative}
+.dd li::before{content:"✦";position:absolute;left:0;top:.2em;font-size:.7em;color:var(--accent)}
+
+/* timeline */
+.tl{border-top:3px double var(--line);margin-top:24px}
+.tl .r{display:flex;gap:18px;padding:13px 0;border-bottom:1px solid var(--line)}
+.tl .t{flex:0 0 100px;font-family:var(--caps);letter-spacing:.06em;color:var(--accent);font-size:18px;line-height:1.5}
+.tl .d b{font-family:var(--display);font-weight:600}
+.tl .d.pending{color:var(--muted)}
+
+/* hosts */
+.person{display:flex;gap:18px;align-items:flex-start;margin:0 0 30px}
+.mono{flex:none;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-style:italic;font-weight:600;font-size:28px;color:var(--accent);border:1px solid var(--accent);box-shadow:inset 0 0 0 4px var(--bg),inset 0 0 0 5px var(--accent)}
+.person h3{font-size:24px;margin-bottom:.05em}
+.person .role{font-style:italic;color:var(--accent);margin-bottom:.45em}
+
+/* sign-off */
+footer{padding:60px 0 120px;text-align:center;border-top:3px double var(--gold)}
+footer .rough{max-width:540px;margin:0 auto;padding:0 24px;font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(21px,5.4vw,25px);line-height:1.45}
+footer .orn{margin:30px 0 26px}
+footer b{display:block;font-family:var(--caps);font-weight:400;letter-spacing:.18em;color:var(--gold);font-size:19px}
+footer .sub{font-style:italic;color:var(--muted-d);font-size:16px}
+
+/* farm sounds */
+.sound{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:5;display:flex;align-items:center;gap:9px;font-family:var(--caps);letter-spacing:.08em;font-size:16px;padding:10px 16px 10px 13px;border-radius:999px;border:1px solid var(--gold);background:var(--green);color:var(--gold);cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.28),inset 0 0 0 3px var(--green),inset 0 0 0 4px rgba(201,166,72,.45)}
+.sound svg{width:20px;height:20px;flex:none}
+.sound .w{opacity:0;transition:opacity .3s}
+.sound[aria-pressed=true] .w{opacity:1}
+.sound[aria-pressed=true] .w2{animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.25}}
+
 @media (min-width:700px){.dd{grid-template-columns:1fr 1fr}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sound .w2{animation:none!important}}
 </style>
 </head>
 <body>
@@ -107,7 +134,7 @@ footer .rough{max-width:520px;margin:0 auto 28px;padding:0 22px;color:var(--whit
 <header class="dark hero trail">
   <div class="wrap">
     <div class="brand">The Feni Trail<small>A MAP Exclusive</small></div>
-    <h1>Twelve people. One farm. One night.</h1>
+    <h1>Twelve people. <em>One farm.</em> One night.</h1>
     <div class="count" aria-live="polite"><b id="days">–</b><span id="daysLabel">days to go</span></div>
     <p class="dates">Saturday 17 to Sunday 18 October. Dudhsagar Plantation.</p>
   </div>
@@ -115,33 +142,20 @@ footer .rough{max-width:520px;margin:0 auto 28px;padding:0 22px;color:var(--whit
 
 <section class="light trail" id="farm">
   <div class="wrap">
+    <p class="eyebrow">Chapter I</p>
     <h2>The farm</h2>
-    <p>Dudhsagar Plantation is an organic farm stay in the forest belt of South Goa. Cashew, spice and coconut plantations, waterfalls tucked into the green, and a copper still at the centre of it. It won Gold for Sustainable Leadership at the 2025 Outlook Traveler Responsible Tourism Awards.</p>
+    <p class="dropcap">Dudhsagar Plantation is an organic farm stay in the forest belt of South Goa. Cashew, spice and coconut plantations, waterfalls tucked into the green, and a copper still at the centre of it. It won Gold for Sustainable Leadership at the 2025 Outlook Traveler Responsible Tourism Awards.</p>
     <p>It is a working farm, not a resort. Expect red earth on your shoes, and a night that is quieter than you are used to.</p>
   </div>
 </section>
 
-<section class="dark trail" id="hosts">
+<section class="dark trail" id="you">
   <div class="wrap">
-    <h2>Your hosts</h2>
-    <div class="person">
-      <h3>Mr. Ashok</h3>
-      <p class="role">Owner of the farm</p>
-      <p>The man behind Dudhsagar Plantation and behind Ouro, the spiced cashew feni his family has made for three generations. He lives here. Ask him anything.</p>
-    </div>
-    <div class="person">
-      <h3>Prashant</h3>
-      <p class="role">The brain behind the trip, and your organiser</p>
-      <p>He put this weekend together. If you need something, find him. If you need nothing, find him anyway.</p>
-    </div>
-  </div>
-</section>
-
-<section class="light trail" id="you">
-  <div class="wrap">
+    <p class="eyebrow">Chapter II</p>
     <h2>Tell us about you</h2>
     <p>Three minutes, one person at a time. It tells the kitchen what to cook and tells us who needs what. It opens WhatsApp with your answers already written. You only press send.</p>
     <div class="form">
+
 
     <div class="field"><label for="name">Your name</label><input type="text" id="name" autocomplete="name"></div>
     <div class="field"><label for="phone">Your phone number</label><input type="tel" id="phone" autocomplete="tel"></div>
@@ -216,11 +230,11 @@ footer .rough{max-width:520px;margin:0 auto 28px;padding:0 22px;color:var(--whit
   </div>
 </section>
 
-<section class="dark trail pack" id="pack">
+<section class="light trail pack" id="pack">
   <div class="wrap">
+    <p class="eyebrow">Chapter III</p>
     <h2>What to bring</h2>
     <p>Rough farm stay. Dress for dirt, dew and a waterfall. Tick as you pack; the ticks stay on your phone.</p>
-    <style>.dark.pack label{border-bottom-color:rgba(201,166,72,.35)}.dark.pack input{accent-color:var(--gold)}.dark.pack input:checked+span{color:var(--muted-d)}</style>
     <label><input type="checkbox" data-k="shoes"><span>Trekking or sports shoes with grip. Not fashion trainers.</span></label>
     <label><input type="checkbox" data-k="sandals"><span>Slippers or sandals for the evening</span></label>
     <label><input type="checkbox" data-k="quick"><span>Light, quick-dry clothes</span></label>
@@ -236,7 +250,7 @@ footer .rough{max-width:520px;margin:0 auto 28px;padding:0 22px;color:var(--whit
 
     <div class="dd">
       <div>
-        <h3 style="color:var(--gold)">Do</h3>
+        <h3>Do</h3>
         <ul>
           <li>Arrive in daylight, with time to spare.</li>
           <li>Eat with every drink. Food and water will be there all weekend.</li>
@@ -245,7 +259,7 @@ footer .rough{max-width:520px;margin:0 auto 28px;padding:0 22px;color:var(--whit
         </ul>
       </div>
       <div>
-        <h3 style="color:var(--gold)">Don't</h3>
+        <h3>Don't</h3>
         <ul>
           <li>Bring your own bottles.</li>
           <li>Swim after drinking, or if you are not a confident swimmer.</li>
@@ -253,12 +267,13 @@ footer .rough{max-width:520px;margin:0 auto 28px;padding:0 22px;color:var(--whit
         </ul>
       </div>
     </div>
-    <p class="note muted" style="margin-top:26px">You are driving yourself. Saturday's drive is the one to plan. For Sunday's, agree with whoever you are travelling with who is driving home, and leave when you are properly clear.</p>
+    <p class="note muted" style="margin-top:28px">You are driving yourself. Saturday's drive is the one to plan. For Sunday's, agree with whoever you are travelling with who is driving home, and leave when you are properly clear.</p>
   </div>
 </section>
 
-<section class="light trail" id="plan">
+<section class="dark trail" id="plan">
   <div class="wrap">
+    <p class="eyebrow">Chapter IV</p>
     <h2>Saturday, roughly</h2>
     <p>We go with the flow. These times are a rough idea, not a promise. Nobody is checking a watch. You are here to chill, eat well and meet interesting people. If something runs long because it is good, it runs long.</p>
     <div class="tl">
@@ -274,11 +289,40 @@ footer .rough{max-width:520px;margin:0 auto 28px;padding:0 22px;color:var(--whit
   </div>
 </section>
 
+<section class="light trail" id="hosts">
+  <div class="wrap">
+    <p class="eyebrow">Chapter V</p>
+    <h2>Your hosts</h2>
+    <div class="person">
+      <span class="mono" aria-hidden="true">A</span>
+      <div>
+        <h3>Mr. Ashok</h3>
+        <p class="role">Owner of the farm</p>
+        <p>The man behind Dudhsagar Plantation and behind Ouro, the spiced cashew feni his family has made for three generations. He lives here. Ask him anything.</p>
+      </div>
+    </div>
+    <div class="person">
+      <span class="mono" aria-hidden="true">P</span>
+      <div>
+        <h3>Prashant</h3>
+        <p class="role">The brain behind the trip, and your organiser</p>
+        <p>He put this weekend together. If you need something, find him. If you need nothing, find him anyway.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="dark">
   <p class="rough">One last thing. This is going to be rough. Don't expect five-star luxury. It's a working farm, and the Feni Trail is on the tougher side. Come for that.</p>
+  <div class="orn" aria-hidden="true">❦&#xFE0E;</div>
   <b>The Feni Trail</b>
-  A MAP Exclusive
+  <span class="sub">A MAP Exclusive</span>
 </footer>
+
+<button class="sound" id="sound" type="button" aria-pressed="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z" fill="currentColor" fill-opacity=".25"/><path class="w" d="M15.5 9a4.2 4.2 0 0 1 0 6"/><path class="w w2" d="M18.3 6.5a8 8 0 0 1 0 11"/></svg>
+  <span id="soundLabel">Hear the farm</span>
+</button>
 
 <script>
 (function(){
@@ -305,6 +349,91 @@ function todayIST(){
   var p=document.getElementById("pin");
   if(CFG.pin){p.innerHTML='<a href="'+CFG.pin+'">Open the farm on the map</a>';}
   else{p.className="d pending";p.textContent="The pin will come to you on WhatsApp.";}
+})();
+
+/* Farm sounds: crickets, birdsong (a koel among them) and leaves,
+   made in the browser so there are no audio files to load. */
+(function(){
+  var btn=document.getElementById("sound"), lab=document.getElementById("soundLabel");
+  var AC=window.AudioContext||window.webkitAudioContext;
+  if(!AC){btn.hidden=true;return;}
+  var ac, master, bus, timers=[], nodes=[], running=false;
+  function later(fn,ms){timers.push(setTimeout(fn,ms));}
+  function rnd(a,b){return a+Math.random()*(b-a);}
+  function route(g,pan){
+    if(ac.createStereoPanner){var p=ac.createStereoPanner();p.pan.value=pan;g.connect(p);p.connect(bus);}
+    else g.connect(bus);
+  }
+  function tone(f0,f1,t,d,v,pan){
+    var o=ac.createOscillator(), g=ac.createGain();
+    o.frequency.setValueAtTime(f0,t); o.frequency.exponentialRampToValueAtTime(f1,t+d);
+    g.gain.setValueAtTime(0.0001,t);
+    g.gain.exponentialRampToValueAtTime(v,t+Math.min(0.02,d/3));
+    g.gain.exponentialRampToValueAtTime(0.0001,t+d);
+    o.connect(g); route(g,pan); o.start(t); o.stop(t+d+0.05);
+  }
+  function bird(){
+    if(!running) return;
+    var t=ac.currentTime+0.05, t0=t, pan=rnd(-0.8,0.8), k=Math.random(), i, n, f;
+    if(k<0.3){            /* koel: a rising ku-oo, a little higher each time */
+      f=rnd(700,820); n=3+Math.floor(Math.random()*3);
+      for(i=0;i<n;i++){var b=f*Math.pow(1.07,i); tone(b,b*1.05,t,0.14,0.09,pan); tone(b*1.15,b*1.5,t+0.16,0.32,0.11,pan); t+=0.78;}
+    }else if(k<0.68){     /* a short whistled phrase */
+      n=2+Math.floor(Math.random()*4); f=rnd(1800,3100);
+      for(i=0;i<n;i++){var d=rnd(0.08,0.22); tone(f,Math.random()<0.5?f*rnd(1.2,1.6):f*rnd(0.6,0.85),t,d,0.06,pan); t+=d+rnd(0.04,0.14); f*=rnd(0.85,1.15);}
+    }else{                /* a quick trill */
+      n=8+Math.floor(Math.random()*10); f=rnd(3000,4000);
+      for(i=0;i<n;i++){tone(f,f*0.8,t,0.045,0.045,pan); t+=0.065;}
+    }
+    later(bird,(t-t0)*1000+rnd(2500,8000));
+  }
+  function cricket(freq,pan,period){
+    var o=ac.createOscillator(), g=ac.createGain();
+    o.frequency.value=freq; g.gain.value=0; o.connect(g); route(g,pan); o.start(); nodes.push(o);
+    (function chirp(){
+      if(!running) return;
+      var t=ac.currentTime+0.05, n=3+Math.floor(Math.random()*2);
+      for(var i=0;i<n;i++){var s=t+i*0.035; g.gain.setValueAtTime(0,s); g.gain.linearRampToValueAtTime(0.016,s+0.006); g.gain.linearRampToValueAtTime(0,s+0.022);}
+      later(chirp,period*rnd(0.85,1.15)*1000);
+    })();
+  }
+  function leaves(){
+    var len=ac.sampleRate*4, buf=ac.createBuffer(1,len,ac.sampleRate), d=buf.getChannelData(0), last=0, i;
+    for(i=0;i<len;i++){last=(last+0.02*(Math.random()*2-1))/1.02; d[i]=last*3.5;}
+    for(i=0;i<2000;i++){d[i]*=i/2000; d[len-1-i]*=i/2000;}
+    var s=ac.createBufferSource(), f=ac.createBiquadFilter(), g=ac.createGain(), l=ac.createOscillator(), lg=ac.createGain();
+    s.buffer=buf; s.loop=true; f.type="lowpass"; f.frequency.value=900; g.gain.value=0.1;
+    l.frequency.value=0.07; lg.gain.value=0.05; l.connect(lg); lg.connect(g.gain);
+    s.connect(f); f.connect(g); g.connect(master); s.start(); l.start(); nodes.push(s,l);
+  }
+  function start(){
+    ac=ac||new AC();
+    if(ac.state==="suspended") ac.resume();
+    running=true;
+    master=ac.createGain(); master.gain.setValueAtTime(0.0001,ac.currentTime);
+    master.gain.exponentialRampToValueAtTime(0.8,ac.currentTime+2.5); master.connect(ac.destination);
+    bus=ac.createGain(); bus.connect(master);
+    /* a little forest echo */
+    var dl=ac.createDelay(1), fb=ac.createGain(), lp=ac.createBiquadFilter(), wet=ac.createGain();
+    dl.delayTime.value=0.21; fb.gain.value=0.3; lp.type="lowpass"; lp.frequency.value=2500; wet.gain.value=0.3;
+    bus.connect(dl); dl.connect(lp); lp.connect(fb); fb.connect(dl); lp.connect(wet); wet.connect(master);
+    leaves(); cricket(4300,-0.5,0.95); cricket(4800,0.55,1.35);
+    later(bird,900);
+  }
+  function stop(){
+    running=false; timers.forEach(clearTimeout); timers=[];
+    var m=master, ns=nodes, now=ac.currentTime; nodes=[];
+    m.gain.cancelScheduledValues(now); m.gain.setValueAtTime(m.gain.value,now); m.gain.linearRampToValueAtTime(0,now+0.6);
+    setTimeout(function(){ns.forEach(function(n){try{n.stop();}catch(e){}}); m.disconnect();},800);
+  }
+  function set(on){
+    if(on===running) return;
+    if(on) start(); else stop();
+    btn.setAttribute("aria-pressed",on?"true":"false");
+    lab.textContent=on?"Hush the farm":"Hear the farm";
+  }
+  btn.addEventListener("click",function(){set(!running);});
+  document.addEventListener("visibilitychange",function(){if(document.hidden) set(false);});
 })();
 
 function save(k,v){try{localStorage.setItem("feniTrial:"+k,v);}catch(e){}}
@@ -357,7 +486,7 @@ function build(){
   return L.join("\n");
 }
 function check(){
-  var e=document.getElementById("err"); e.style.color="#b3261e"; e.textContent="";
+  var e=document.getElementById("err"); e.className="err"; e.textContent="";
   if(!val("name")){e.textContent="Add your name first.";document.getElementById("name").focus();return false;}
   if(!val("phone")){e.textContent="Add your phone number so we can reach you.";document.getElementById("phone").focus();return false;}
   if(!chips("food").length){e.textContent="Choose what you eat. It decides what we cook.";return false;}
@@ -371,7 +500,7 @@ document.getElementById("send").addEventListener("click",function(){
 document.getElementById("copy").addEventListener("click",function(){
   if(!check()) return;
   var t=build(), e=document.getElementById("err");
-  function done(){e.style.color="#0a160a";e.textContent="Copied. Paste it into WhatsApp.";}
+  function done(){e.className="err ok";e.textContent="Copied. Paste it into WhatsApp.";}
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){e.textContent="Could not copy. Use the WhatsApp button instead.";});}
   else{e.textContent="Could not copy. Use the WhatsApp button instead.";}
 });
