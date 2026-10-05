@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Before you come · The Feni Trail · 17–18 October</title>
+<style>
+/* Tokens: green, gold, white. CONFIRM --gold against the main site CSS. */
+:root{
+  --green:#0a160a;
+  --green-2:#12200f;
+  --white:#ffffff;
+  --gold:#c9a648;
+  --muted-d:#b5bfa8;   /* muted text on green */
+  --muted-l:#4a5a45;   /* muted text on white */
+  --serif:"TeX Gyre Pagella","Palatino Linotype",Palatino,"Book Antiqua","URW Palladio L",Georgia,serif;
+  --display:"TeX Gyre Bonum","Bookman Old Style",Bookman,"URW Bookman",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--green);color:var(--white);font-family:var(--serif);font-size:18px;line-height:1.6;-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.15;margin:0}
+p{margin:0 0 1em}
+.wrap{max-width:620px;margin:0 auto;padding:0 22px 0 44px}
+section{padding:56px 0;position:relative}
+.dark{background:var(--green);color:var(--white)}
+.light{background:var(--white);color:var(--green)}
+.dark h2{color:var(--gold)}
+.light h2{color:var(--green)}
+h2{font-size:clamp(28px,7vw,36px);margin-bottom:.5em}
+.light .muted{color:var(--muted-l)}
+.dark .muted{color:var(--muted-d)}
+
+/* gold trail line down the left edge, a dot at each section */
+.trail::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--gold)}
+.trail .wrap::before{content:"";position:absolute;left:5px;top:66px;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px var(--green)}
+.light.trail .wrap::before{box-shadow:0 0 0 4px var(--white)}
+.wrap{position:relative}
+
+/* hero */
+.hero{padding:48px 0 44px}
+.hero .wrap{padding-left:44px}
+.brand{font-family:var(--display);color:var(--gold);font-size:17px;margin-bottom:36px}
+.brand small{display:block;font-family:var(--serif);font-weight:400;color:var(--muted-d);font-size:15px}
+.hero h1{font-size:clamp(38px,10.5vw,56px);color:var(--white)}
+.count{display:flex;align-items:baseline;gap:14px;margin:30px 0 6px;border-top:2px solid var(--gold);padding-top:20px}
+.count b{font-family:var(--display);font-size:clamp(64px,22vw,104px);line-height:.9;color:var(--gold)}
+.count span{font-size:19px}
+.hero .dates{margin:0;color:var(--muted-d)}
+
+/* host blocks */
+.person{border-left:3px solid var(--gold);padding-left:18px;margin:0 0 26px}
+.person h3{font-size:22px;margin-bottom:.1em}
+.person .role{font-style:italic;margin-bottom:.5em}
+
+/* timeline */
+.tl{border-top:1px solid var(--gold);margin-top:22px}
+.tl .r{display:flex;gap:18px;padding:13px 0;border-bottom:1px solid var(--gold)}
+.tl .t{flex:0 0 96px;font-family:var(--display);font-weight:700;color:var(--green)}
+.tl .d b{font-family:var(--display)}
+.tl .d.pending{color:var(--muted-l)}
+
+/* pack + dos */
+.pack label{display:flex;gap:12px;align-items:flex-start;padding:9px 0;cursor:pointer;border-bottom:1px solid rgba(10,22,10,.14)}
+.pack input{margin-top:6px;width:20px;height:20px;accent-color:var(--green);flex:none}
+.pack input:checked+span{text-decoration:line-through;color:var(--muted-l)}
+.dd{display:grid;gap:22px;margin-top:30px}
+.dd h3{font-size:21px;margin-bottom:.4em}
+.dd ul{margin:0;padding-left:1.1em}
+.dd li{margin-bottom:.5em}
+
+/* form */
+.field{margin:0 0 26px}
+.field>label,.field>.q{display:block;font-family:var(--display);font-weight:700;font-size:18px;margin-bottom:6px}
+.hint{display:block;font-weight:400;font-family:var(--serif);color:var(--muted-d);font-size:15.5px;margin-bottom:8px}
+input[type=text],input[type=tel],textarea{width:100%;font:inherit;font-size:17px;padding:13px 14px;border-radius:6px;border:1px solid var(--gold);background:var(--green-2);color:var(--white)}
+textarea{min-height:88px;resize:vertical}
+input[type=text]:focus,input[type=tel]:focus,textarea:focus,.chip input:focus-visible+span,button:focus-visible,a:focus-visible{outline:3px solid var(--white);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.chip span{display:block;padding:10px 16px;border-radius:999px;border:1px solid var(--gold);color:var(--white);font-size:16.5px;line-height:1.3}
+.chip input:checked+span{background:var(--gold);color:var(--green);font-weight:700}
+.btn{display:block;width:100%;font-family:var(--display);font-weight:700;font-size:18px;padding:16px 18px;border-radius:8px;border:0;background:var(--gold);color:var(--green);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold);margin-top:12px}
+.err{color:#ffb4a8;font-size:16px;min-height:1.4em;margin:10px 0 0}
+.note{font-size:15.5px}
+a{color:var(--gold)} .light a{color:var(--green)}
+footer{padding:36px 0 52px;text-align:center;color:var(--muted-d);font-size:15px;border-top:2px solid var(--gold)}
+footer b{display:block;font-family:var(--display);color:var(--gold);font-size:17px}
+
+/* form on white */
+.light .hint{color:var(--muted-l)}
+.light input[type=text],.light input[type=tel],.light textarea{background:var(--white);color:var(--green);border:1px solid var(--green)}
+.light .chip span{color:var(--green);border-color:var(--green)}
+.light .chip input:checked+span{background:var(--green);color:var(--white);border-color:var(--green)}
+.light input[type=text]:focus,.light input[type=tel]:focus,.light textarea:focus,.light .chip input:focus-visible+span,.light button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.light .btn.ghost{color:var(--green);border-color:var(--green)}
+@media (min-width:700px){.dd{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="dark hero trail">
+  <div class="wrap">
+    <div class="brand">The Feni Trail<small>A MAP Exclusive</small></div>
+    <h1>Twelve people. One farm. One night.</h1>
+    <div class="count" aria-live="polite"><b id="days">–</b><span id="daysLabel">days to go</span></div>
+    <p class="dates">Saturday 17 to Sunday 18 October. Dudhsagar Plantation.</p>
+  </div>
+</header>
+
+<section class="light trail" id="farm">
+  <div class="wrap">
+    <h2>The farm</h2>
+    <p>Dudhsagar Plantation is an organic farm stay in the forest belt of South Goa. Cashew and coconut trees, waterfalls tucked into the green, and a copper still at the centre of it. It won Gold for Sustainable Leadership at the 2025 Outlook Traveler Responsible Tourism Awards.</p>
+    <p>It is a working farm, not a resort. Expect red earth on your shoes, and a night that is quieter than you are used to.</p>
+  </div>
+</section>
+
+<section class="dark trail" id="hosts">
+  <div class="wrap">
+    <h2>Your hosts</h2>
+    <div class="person">
+      <h3>Mr. Ashok</h3>
+      <p class="role">Owner of the farm</p>
+      <p>The man behind Dudhsagar Plantation and behind Ouro, the spiced cashew feni his family has made for three generations. He lives here. Ask him anything.</p>
+    </div>
+    <div class="person">
+      <h3>Prashant</h3>
+      <p class="role">The brain behind the trip, and your organiser</p>
+      <p>He put this weekend together. If you need something, find him. If you need nothing, find him anyway.</p>
+    </div>
+  </div>
+</section>
+
+<section class="light trail" id="you">
+  <div class="wrap">
+    <h2>Tell us about you</h2>
+    <p>Three minutes, one person at a time. It tells the kitchen what to cook and tells us who needs what. It opens WhatsApp with your answers already written. You only press send.</p>
+    <div class="form">
+
+    <div class="field"><label for="name">Your name</label><input type="text" id="name" autocomplete="name"></div>
+    <div class="field"><label for="phone">Your phone number</label><input type="tel" id="phone" autocomplete="tel"></div>
+    <div class="field"><label for="with">Who are you coming with?</label><span class="hint">Names, and whether you are sharing a car</span><input type="text" id="with"></div>
+
+    <div class="field"><div class="q">What do you eat?</div>
+      <div class="chips" data-group="food" data-single="1">
+        <label class="chip"><input type="checkbox" value="Non-vegetarian"><span>Non-vegetarian</span></label>
+        <label class="chip"><input type="checkbox" value="Vegetarian"><span>Vegetarian</span></label>
+        <label class="chip"><input type="checkbox" value="Eggetarian"><span>Eggetarian</span></label>
+        <label class="chip"><input type="checkbox" value="Vegan"><span>Vegan</span></label>
+        <label class="chip"><input type="checkbox" value="Fish but no meat"><span>Fish, no meat</span></label>
+      </div>
+    </div>
+    <div class="field"><label for="avoid">Allergies, or anything you can't eat?</label><span class="hint">Say if it is serious</span><textarea id="avoid"></textarea></div>
+
+    <div class="field"><div class="q">Spice</div>
+      <div class="chips" data-group="spice" data-single="1">
+        <label class="chip"><input type="checkbox" value="Mild"><span>Mild</span></label>
+        <label class="chip"><input type="checkbox" value="Medium"><span>Medium</span></label>
+        <label class="chip"><input type="checkbox" value="Hot"><span>Bring it on</span></label>
+      </div>
+    </div>
+
+    <div class="field"><div class="q">Drinks</div>
+      <div class="chips" data-group="drink" data-single="1">
+        <label class="chip"><input type="checkbox" value="Yes"><span>I drink</span></label>
+        <label class="chip"><input type="checkbox" value="A little"><span>A little</span></label>
+        <label class="chip"><input type="checkbox" value="Not drinking"><span>I don't drink</span></label>
+      </div>
+      <span class="hint" style="margin-top:8px">If you don't, we'll plan proper drinks for you.</span>
+    </div>
+
+    <div class="field"><div class="q">What do you want to do?</div>
+      <div class="chips" data-group="likes">
+        <label class="chip"><input type="checkbox" value="Jungle walk"><span>Jungle walk</span></label>
+        <label class="chip"><input type="checkbox" value="Waterfalls"><span>Waterfalls</span></label>
+        <label class="chip"><input type="checkbox" value="Swimming"><span>Swimming</span></label>
+        <label class="chip"><input type="checkbox" value="Music"><span>Music</span></label>
+        <label class="chip"><input type="checkbox" value="Photography"><span>Photography</span></label>
+        <label class="chip"><input type="checkbox" value="Birds and plants"><span>Birds and plants</span></label>
+        <label class="chip"><input type="checkbox" value="Early morning walk"><span>Early walk</span></label>
+        <label class="chip"><input type="checkbox" value="Doing nothing"><span>Doing nothing</span></label>
+      </div>
+    </div>
+    <div class="field"><div class="q">What would you rather skip?</div>
+      <div class="chips" data-group="skips">
+        <label class="chip"><input type="checkbox" value="Long walks"><span>Long walks</span></label>
+        <label class="chip"><input type="checkbox" value="Getting in the water"><span>Getting wet</span></label>
+        <label class="chip"><input type="checkbox" value="Loud music"><span>Loud music</span></label>
+        <label class="chip"><input type="checkbox" value="Early mornings"><span>Early mornings</span></label>
+        <label class="chip"><input type="checkbox" value="Insects"><span>Insects</span></label>
+      </div>
+    </div>
+
+    <div class="field"><div class="q">Can you swim?</div>
+      <div class="chips" data-group="swim" data-single="1">
+        <label class="chip"><input type="checkbox" value="Yes, confidently"><span>Yes</span></label>
+        <label class="chip"><input type="checkbox" value="A little"><span>A little</span></label>
+        <label class="chip"><input type="checkbox" value="No"><span>No</span></label>
+      </div>
+    </div>
+
+    <div class="field"><label for="body">Any injury or mobility issue we should know about?</label><textarea id="body"></textarea></div>
+    <div class="field"><label for="emerg">Emergency contact</label><span class="hint">A name and a number</span><input type="text" id="emerg"></div>
+    <div class="field"><label for="more">Anything else?</label><textarea id="more"></textarea></div>
+
+    <button class="btn" id="send" type="button">Send my answers on WhatsApp</button>
+    <button class="btn ghost" id="copy" type="button">Copy my answers instead</button>
+    <p class="err" id="err" role="alert"></p>
+    <p class="note muted">Your answers go to Prashant and are used only to plan the weekend.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark trail pack" id="pack">
+  <div class="wrap">
+    <h2>What to bring</h2>
+    <p>Rough farm stay. Dress for dirt, dew and a waterfall. Tick as you pack; the ticks stay on your phone.</p>
+    <style>.dark.pack label{border-bottom-color:rgba(201,166,72,.35)}.dark.pack input{accent-color:var(--gold)}.dark.pack input:checked+span{color:var(--muted-d)}</style>
+    <label><input type="checkbox" data-k="shoes"><span>Trekking or sports shoes with grip. Not fashion trainers.</span></label>
+    <label><input type="checkbox" data-k="sandals"><span>Slippers or sandals for the evening</span></label>
+    <label><input type="checkbox" data-k="quick"><span>Light, quick-dry clothes</span></label>
+    <label><input type="checkbox" data-k="long"><span>Long trousers and a long-sleeved top for the jungle walk</span></label>
+    <label><input type="checkbox" data-k="layer"><span>A warm layer for the night</span></label>
+    <label><input type="checkbox" data-k="rain"><span>A light rain jacket, in case</span></label>
+    <label><input type="checkbox" data-k="swim"><span>Swimwear. Towels are at the farm.</span></label>
+    <label><input type="checkbox" data-k="dry"><span>A dry set of clothes for after the falls</span></label>
+    <label><input type="checkbox" data-k="torch"><span>A torch or headlamp</span></label>
+    <label><input type="checkbox" data-k="repel"><span>Insect repellent, sunscreen, a cap</span></label>
+    <label><input type="checkbox" data-k="power"><span>A power bank</span></label>
+    <label><input type="checkbox" data-k="meds"><span>Your own medicines</span></label>
+
+    <div class="dd">
+      <div>
+        <h3 style="color:var(--gold)">Do</h3>
+        <ul>
+          <li>Arrive in daylight, with time to spare.</li>
+          <li>Eat with every drink. Food and water will be there all weekend.</li>
+          <li>Ask questions. Everyone here has a story.</li>
+          <li>Sit close for Elvis, phone away until the set ends.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:var(--gold)">Don't</h3>
+        <ul>
+          <li>Bring your own bottles.</li>
+          <li>Swim after drinking, or if you are not a confident swimmer.</li>
+          <li>Wander off the paths alone after dark.</li>
+          <li>Photograph the hosts without asking.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note muted" style="margin-top:26px">You are driving yourself. Saturday's drive is the one to plan. For Sunday's, agree with whoever you are travelling with who is driving home, and leave when you are properly clear.</p>
+  </div>
+</section>
+
+<section class="light trail" id="plan">
+  <div class="wrap">
+    <h2>Saturday, roughly</h2>
+    <p>We go with the flow. These times are a rough idea, not a promise. Nobody is checking a watch. You are here to chill, eat well and meet interesting people. If something runs long because it is good, it runs long.</p>
+    <div class="tl">
+      <div class="r"><span class="t">From 12 noon</span><span class="d"><b>Arrive.</b> Settle in, find your room, find the water.</span></div>
+      <div class="r"><span class="t">Around 1 pm</span><span class="d"><b>Lunch.</b> Everyone together, and your first chance to meet each other.</span></div>
+      <div class="r"><span class="t">4 pm</span><span class="d"><b>The trail.</b> We gather for the walk through the farm.</span></div>
+      <div class="r"><span class="t">8 pm</span><span class="d"><b>Elvis Lobo.</b> Live, solo, under the open sky.</span></div>
+      <div class="r"><span class="t">9.30 pm</span><span class="d"><b>Dinner and barbecue.</b></span></div>
+      <div class="r"><span class="t">Around 11 pm</span><span class="d"><b>Scorpio and Moon.</b></span></div>
+      <div class="r"><span class="t">Sunday</span><span class="d"><b>A slow breakfast.</b> Leave when you are ready.</span></div>
+      <div class="r"><span class="t">Location</span><span class="d" id="pin"></span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="dark">
+  <b>The Feni Trail</b>
+  A MAP Exclusive
+</footer>
+
+<script>
+(function(){
+/* CONFIG: paste the farm's Google Maps link into pin when you have it. */
+var CFG = {
+  whatsapp: "919849690077",
+  eventDate: [2026,10,17],
+  pin: "https://maps.app.goo.gl/jqbQekK1drK5zQNX9"
+};
+
+function todayIST(){
+  var s = new Date().toLocaleDateString("en-CA",{timeZone:"Asia/Kolkata"}).split("-");
+  return Date.UTC(+s[0],+s[1]-1,+s[2]);
+}
+(function(){
+  var d = Math.round((Date.UTC(CFG.eventDate[0],CFG.eventDate[1]-1,CFG.eventDate[2])-todayIST())/86400000);
+  var n = document.getElementById("days"), l = document.getElementById("daysLabel");
+  if(d>1){n.textContent=d; l.textContent="days to go";}
+  else if(d===1){n.textContent="1"; l.textContent="day to go. See you tomorrow.";}
+  else if(d===0){n.textContent="Today"; l.textContent="";}
+  else {n.textContent=""; l.textContent="Thank you for coming.";}
+})();
+(function(){
+  var p=document.getElementById("pin");
+  if(CFG.pin){p.innerHTML='<a href="'+CFG.pin+'">Open the farm on the map</a>';}
+  else{p.className="d pending";p.textContent="The pin will come to you on WhatsApp.";}
+})();
+
+function save(k,v){try{localStorage.setItem("feniTrial:"+k,v);}catch(e){}}
+function load(k){try{return localStorage.getItem("feniTrial:"+k);}catch(e){return null;}}
+
+document.querySelectorAll(".pack input[type=checkbox]").forEach(function(cb){
+  cb.checked = load("pack:"+cb.dataset.k)==="1";
+  cb.addEventListener("change",function(){save("pack:"+cb.dataset.k,cb.checked?"1":"0");});
+});
+document.querySelectorAll(".chips[data-single]").forEach(function(g){
+  g.addEventListener("change",function(e){
+    if(!e.target.checked) return;
+    g.querySelectorAll("input").forEach(function(i){if(i!==e.target) i.checked=false;});
+  });
+});
+var IDS=["name","phone","with","avoid","body","emerg","more"];
+IDS.forEach(function(id){
+  var el=document.getElementById(id), v=load("f:"+id);
+  if(v) el.value=v;
+  el.addEventListener("input",function(){save("f:"+id,el.value);});
+});
+function picked(g){var a=[];g.querySelectorAll("input:checked").forEach(function(i){a.push(i.value);});return a;}
+document.querySelectorAll(".chips").forEach(function(g){
+  var key="c:"+g.dataset.group, v=load(key);
+  if(v){var set=v.split("|");g.querySelectorAll("input").forEach(function(i){i.checked=set.indexOf(i.value)>-1;});}
+  g.addEventListener("change",function(){save(key,picked(g).join("|"));});
+});
+function chips(name){return picked(document.querySelector('.chips[data-group="'+name+'"]'));}
+function val(id){return document.getElementById(id).value.trim();}
+
+function build(){
+  var L=[];
+  L.push("Hi Prashant, my details for 17–18 October at Dudhsagar.");
+  L.push("");
+  L.push("Name: "+val("name"));
+  L.push("Phone: "+val("phone"));
+  L.push("Coming with: "+(val("with")||"-"));
+  L.push("");
+  L.push("Food: "+(chips("food").join(", ")||"-"));
+  L.push("Allergies / can't eat: "+(val("avoid")||"None"));
+  L.push("Spice: "+(chips("spice").join(", ")||"-"));
+  L.push("Drinks: "+(chips("drink").join(", ")||"-"));
+  L.push("");
+  L.push("Want to do: "+(chips("likes").join(", ")||"-"));
+  L.push("Would rather skip: "+(chips("skips").join(", ")||"-"));
+  L.push("Swimming: "+(chips("swim").join(", ")||"-"));
+  L.push("Injury / mobility: "+(val("body")||"None"));
+  L.push("Emergency contact: "+(val("emerg")||"-"));
+  L.push("Anything else: "+(val("more")||"-"));
+  return L.join("\n");
+}
+function check(){
+  var e=document.getElementById("err"); e.style.color="#b3261e"; e.textContent="";
+  if(!val("name")){e.textContent="Add your name first.";document.getElementById("name").focus();return false;}
+  if(!val("phone")){e.textContent="Add your phone number so we can reach you.";document.getElementById("phone").focus();return false;}
+  if(!chips("food").length){e.textContent="Choose what you eat. It decides what we cook.";return false;}
+  if(!val("emerg")){e.textContent="Add an emergency contact, a name and a number.";document.getElementById("emerg").focus();return false;}
+  return true;
+}
+document.getElementById("send").addEventListener("click",function(){
+  if(!check()) return;
+  window.location.href="https://wa.me/"+CFG.whatsapp+"?text="+encodeURIComponent(build());
+});
+document.getElementById("copy").addEventListener("click",function(){
+  if(!check()) return;
+  var t=build(), e=document.getElementById("err");
+  function done(){e.style.color="#0a160a";e.textContent="Copied. Paste it into WhatsApp.";}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){e.textContent="Could not copy. Use the WhatsApp button instead.";});}
+  else{e.textContent="Could not copy. Use the WhatsApp button instead.";}
+});
+})();
+</script>
+</body>
+</html>
