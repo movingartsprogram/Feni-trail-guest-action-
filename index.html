@@ -65,6 +65,10 @@ a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
 .count span{font-family:var(--caps);letter-spacing:.12em;font-size:19px}
 .hero .dates{margin:0;color:var(--muted-d);font-style:italic}
 
+/* form sections: you, partner, both */
+.who{font-size:23px;color:var(--h);margin:36px 0 16px;padding-top:20px;border-top:1px solid var(--line)}
+.form>.who:first-child{margin-top:0;padding-top:0;border-top:0}
+
 /* farm drop cap */
 .dropcap::first-letter{float:left;font-family:var(--display);font-weight:700;font-size:4.1em;line-height:.82;padding:6px 10px 0 0;color:var(--accent)}
 
@@ -160,13 +164,12 @@ footer .sub{font-style:italic;color:var(--muted);font-size:16px}
   <div class="wrap">
     <p class="eyebrow">Chapter II</p>
     <h2>Tell us about you</h2>
-    <p>Three minutes, one person at a time. It tells the kitchen what to cook and tells us who needs what. It opens WhatsApp with your answers already written. You only press send.</p>
+    <p>Three minutes. Couples can fill in one form for both. It tells the kitchen what to cook and tells us who needs what. It opens WhatsApp with your answers already written. You only press send.</p>
     <div class="form">
 
-
+    <h3 class="who">You</h3>
     <div class="field"><label for="name">Your name</label><input type="text" id="name" autocomplete="name"></div>
     <div class="field"><label for="phone">Your phone number</label><input type="tel" id="phone" autocomplete="tel"></div>
-    <div class="field"><label for="with">Who are you coming with?</label><span class="hint">Names, and whether you are sharing a car</span><input type="text" id="with"></div>
 
     <div class="field"><div class="q">What do you eat?</div>
       <div class="chips" data-group="food" data-single="1">
@@ -196,6 +199,71 @@ footer .sub{font-style:italic;color:var(--muted);font-size:16px}
       <span class="hint" style="margin-top:8px">If you don't, we'll plan proper drinks for you.</span>
     </div>
 
+    <div class="field"><div class="q">Can you swim?</div>
+      <div class="chips" data-group="swim" data-single="1">
+        <label class="chip"><input type="checkbox" value="Yes, confidently"><span>Yes</span></label>
+        <label class="chip"><input type="checkbox" value="A little"><span>A little</span></label>
+        <label class="chip"><input type="checkbox" value="No"><span>No</span></label>
+      </div>
+    </div>
+
+    <div class="field"><label for="body">Any injury or mobility issue we should know about?</label><textarea id="body"></textarea></div>
+
+    <div class="field"><div class="q">Are you coming with a partner?</div>
+      <span class="hint">You can fill in for both of you here. One form per couple.</span>
+      <div class="chips" data-group="party" data-single="1">
+        <label class="chip"><input type="checkbox" value="Just me"><span>Just me</span></label>
+        <label class="chip"><input type="checkbox" value="With my partner"><span>With my partner</span></label>
+      </div>
+    </div>
+
+    <div id="partner" hidden>
+    <h3 class="who">Your partner</h3>
+    <div class="field"><label for="p2name">Their name</label><input type="text" id="p2name" autocomplete="off"></div>
+    <div class="field"><label for="p2phone">Their phone number</label><span class="hint">Optional</span><input type="tel" id="p2phone" autocomplete="off"></div>
+
+    <div class="field"><div class="q">What do they eat?</div>
+      <div class="chips" data-group="p2food" data-single="1">
+        <label class="chip"><input type="checkbox" value="Non-vegetarian"><span>Non-vegetarian</span></label>
+        <label class="chip"><input type="checkbox" value="Vegetarian"><span>Vegetarian</span></label>
+        <label class="chip"><input type="checkbox" value="Eggetarian"><span>Eggetarian</span></label>
+        <label class="chip"><input type="checkbox" value="Vegan"><span>Vegan</span></label>
+        <label class="chip"><input type="checkbox" value="Fish but no meat"><span>Fish, no meat</span></label>
+      </div>
+    </div>
+    <div class="field"><label for="p2avoid">Their allergies, or anything they can't eat?</label><span class="hint">Say if it is serious</span><textarea id="p2avoid"></textarea></div>
+
+    <div class="field"><div class="q">Spice</div>
+      <div class="chips" data-group="p2spice" data-single="1">
+        <label class="chip"><input type="checkbox" value="Mild"><span>Mild</span></label>
+        <label class="chip"><input type="checkbox" value="Medium"><span>Medium</span></label>
+        <label class="chip"><input type="checkbox" value="Hot"><span>Bring it on</span></label>
+      </div>
+    </div>
+
+    <div class="field"><div class="q">Drinks</div>
+      <div class="chips" data-group="p2drink" data-single="1">
+        <label class="chip"><input type="checkbox" value="Yes"><span>Drinks</span></label>
+        <label class="chip"><input type="checkbox" value="A little"><span>A little</span></label>
+        <label class="chip"><input type="checkbox" value="Not drinking"><span>Doesn't drink</span></label>
+      </div>
+      <span class="hint" style="margin-top:8px">If they don't, we'll plan proper drinks for them.</span>
+    </div>
+
+    <div class="field"><div class="q">Can they swim?</div>
+      <div class="chips" data-group="p2swim" data-single="1">
+        <label class="chip"><input type="checkbox" value="Yes, confidently"><span>Yes</span></label>
+        <label class="chip"><input type="checkbox" value="A little"><span>A little</span></label>
+        <label class="chip"><input type="checkbox" value="No"><span>No</span></label>
+      </div>
+    </div>
+
+    <div class="field"><label for="p2body">Any injury or mobility issue for them?</label><textarea id="p2body"></textarea></div>
+    </div>
+
+    <h3 class="who" id="bothHead">A bit more</h3>
+    <div class="field"><label for="with">Anyone else you are coming with?</label><span class="hint">Names, and whether you are sharing a car</span><input type="text" id="with"></div>
+
     <div class="field"><div class="q">What do you want to do?</div>
       <div class="chips" data-group="likes">
         <label class="chip"><input type="checkbox" value="Jungle walk"><span>Jungle walk</span></label>
@@ -217,22 +285,14 @@ footer .sub{font-style:italic;color:var(--muted);font-size:16px}
       </div>
     </div>
 
-    <div class="field"><div class="q">Can you swim?</div>
-      <div class="chips" data-group="swim" data-single="1">
-        <label class="chip"><input type="checkbox" value="Yes, confidently"><span>Yes</span></label>
-        <label class="chip"><input type="checkbox" value="A little"><span>A little</span></label>
-        <label class="chip"><input type="checkbox" value="No"><span>No</span></label>
-      </div>
-    </div>
-
-    <div class="field"><label for="body">Any injury or mobility issue we should know about?</label><textarea id="body"></textarea></div>
-    <div class="field"><label for="emerg">Emergency contact</label><span class="hint">A name and a number</span><input type="text" id="emerg"></div>
+    <div class="field"><label for="emerg">Emergency contact</label><span class="hint">A name and a number, someone who is not coming on the trip</span><input type="text" id="emerg"></div>
     <div class="field"><label for="more">Anything else?</label><textarea id="more"></textarea></div>
 
     <button class="btn" id="send" type="button">Send my answers on WhatsApp</button>
     <button class="btn ghost" id="copy" type="button">Copy my answers instead</button>
+    <button class="btn ghost" id="clear" type="button">Clear my answers</button>
     <p class="err" id="err" role="alert"></p>
-    <p class="note muted">Your answers go to Prashant and are used only to plan the weekend.</p>
+    <p class="note muted">Your answers are kept on this phone until you send them, so you can come back and finish later. They go to Prashant and are used only to plan the weekend.</p>
     </div>
   </div>
 </section>
@@ -467,7 +527,7 @@ document.querySelectorAll(".chips[data-single]").forEach(function(g){
     g.querySelectorAll("input").forEach(function(i){if(i!==e.target) i.checked=false;});
   });
 });
-var IDS=["name","phone","with","avoid","body","emerg","more"];
+var IDS=["name","phone","avoid","body","p2name","p2phone","p2avoid","p2body","with","emerg","more"];
 IDS.forEach(function(id){
   var el=document.getElementById(id), v=load("f:"+id);
   if(v) el.value=v;
@@ -481,24 +541,36 @@ document.querySelectorAll(".chips").forEach(function(g){
 });
 function chips(name){return picked(document.querySelector('.chips[data-group="'+name+'"]'));}
 function val(id){return document.getElementById(id).value.trim();}
+function couple(){return chips("party")[0]==="With my partner";}
+function showPartner(){
+  document.getElementById("partner").hidden=!couple();
+  document.getElementById("bothHead").textContent=couple()?"Both of you":"A bit more";
+}
+document.querySelector('.chips[data-group="party"]').addEventListener("change",showPartner);
+showPartner();
 
+function person(L,px,label){
+  L.push(label);
+  L.push("Name: "+val(px+"name"));
+  if(px==="") L.push("Phone: "+val("phone"));
+  else if(val(px+"phone")) L.push("Phone: "+val(px+"phone"));
+  L.push("Food: "+(chips(px+"food").join(", ")||"-"));
+  L.push("Allergies / can't eat: "+(val(px+"avoid")||"None"));
+  L.push("Spice: "+(chips(px+"spice").join(", ")||"-"));
+  L.push("Drinks: "+(chips(px+"drink").join(", ")||"-"));
+  L.push("Swimming: "+(chips(px+"swim").join(", ")||"-"));
+  L.push("Injury / mobility: "+(val(px+"body")||"None"));
+  L.push("");
+}
 function build(){
-  var L=[];
-  L.push("Hi Prashant, my details for 17–18 October at Dudhsagar.");
+  var L=[], two=couple();
+  L.push("Hi Prashant, "+(two?"our":"my")+" details for 17–18 October at Dudhsagar.");
   L.push("");
-  L.push("Name: "+val("name"));
-  L.push("Phone: "+val("phone"));
-  L.push("Coming with: "+(val("with")||"-"));
-  L.push("");
-  L.push("Food: "+(chips("food").join(", ")||"-"));
-  L.push("Allergies / can't eat: "+(val("avoid")||"None"));
-  L.push("Spice: "+(chips("spice").join(", ")||"-"));
-  L.push("Drinks: "+(chips("drink").join(", ")||"-"));
-  L.push("");
+  person(L,"",two?"*Person 1*":"*Me*");
+  if(two){person(L,"p2","*Person 2 (partner)*");L.push("*Both of us*");}
+  L.push("Also coming with: "+(val("with")||"-"));
   L.push("Want to do: "+(chips("likes").join(", ")||"-"));
   L.push("Would rather skip: "+(chips("skips").join(", ")||"-"));
-  L.push("Swimming: "+(chips("swim").join(", ")||"-"));
-  L.push("Injury / mobility: "+(val("body")||"None"));
   L.push("Emergency contact: "+(val("emerg")||"-"));
   L.push("Anything else: "+(val("more")||"-"));
   return L.join("\n");
@@ -508,6 +580,8 @@ function check(){
   if(!val("name")){e.textContent="Add your name first.";document.getElementById("name").focus();return false;}
   if(!val("phone")){e.textContent="Add your phone number so we can reach you.";document.getElementById("phone").focus();return false;}
   if(!chips("food").length){e.textContent="Choose what you eat. It decides what we cook.";return false;}
+  if(couple()&&!val("p2name")){e.textContent="Add your partner's name.";document.getElementById("p2name").focus();return false;}
+  if(couple()&&!chips("p2food").length){e.textContent="Choose what your partner eats.";return false;}
   if(!val("emerg")){e.textContent="Add an emergency contact, a name and a number.";document.getElementById("emerg").focus();return false;}
   return true;
 }
@@ -521,6 +595,16 @@ document.getElementById("copy").addEventListener("click",function(){
   function done(){e.className="err ok";e.textContent="Copied. Paste it into WhatsApp.";}
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){e.textContent="Could not copy. Use the WhatsApp button instead.";});}
   else{e.textContent="Could not copy. Use the WhatsApp button instead.";}
+});
+document.getElementById("clear").addEventListener("click",function(){
+  if(!confirm("Clear all your answers on this page?")) return;
+  IDS.forEach(function(id){document.getElementById(id).value="";try{localStorage.removeItem("feniTrial:f:"+id);}catch(e){}});
+  document.querySelectorAll(".chips").forEach(function(g){
+    g.querySelectorAll("input").forEach(function(i){i.checked=false;});
+    try{localStorage.removeItem("feniTrial:c:"+g.dataset.group);}catch(e){}
+  });
+  showPartner();
+  var e=document.getElementById("err");e.className="err ok";e.textContent="Cleared.";
 });
 })();
 </script>
