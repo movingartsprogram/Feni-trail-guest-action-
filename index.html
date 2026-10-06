@@ -120,6 +120,9 @@ footer .sub{font-style:italic;color:var(--muted);font-size:16px}
 /* contribution */
 .pay .btn{display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;margin-top:26px}
 .pay .btn svg{width:18px;height:18px;flex:none}
+.amt{display:flex;align-items:baseline;gap:12px;border-top:3px double var(--line);border-bottom:1px solid var(--line);padding:14px 0 10px;margin:0 0 20px}
+.amt b{font-family:var(--display);font-style:italic;font-weight:600;font-size:clamp(44px,13vw,60px);line-height:1;color:var(--accent)}
+.amt span{font-family:var(--caps);letter-spacing:.12em;font-size:19px}
 
 /* farm sounds */
 .sound{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:5;display:flex;align-items:center;gap:9px;font-family:var(--caps);letter-spacing:.08em;font-size:16px;padding:10px 16px 10px 13px;border-radius:999px;border:1px solid var(--gold);background:var(--green);color:var(--gold);cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.28),inset 0 0 0 3px var(--green),inset 0 0 0 4px rgba(201,166,72,.45)}
@@ -320,7 +323,8 @@ footer .sub{font-style:italic;color:var(--muted);font-size:16px}
   <div class="wrap">
     <p class="eyebrow">Chapter VI</p>
     <h2>Your contribution</h2>
-    <p>Pay your share for the weekend through our Razorpay page.</p>
+    <p class="amt"><b>₹3,000</b><span>per guest</span></p>
+    <p>Pay your share for the weekend through our Razorpay page. If you are paying for someone else too, pay ₹3,000 for each person.</p>
     <p class="note muted">Please add your name in the note so we can match the payment to you.</p>
     <a class="btn" href="https://razorpay.me/@movingartsprogram" target="_blank" rel="noopener">Pay on Razorpay <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
   </div>
